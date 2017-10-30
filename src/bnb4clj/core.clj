@@ -116,3 +116,12 @@
                    (f (first in)) (cons out (make (rest in)))
                    :else (recur (rest in) (conj out (first in))))))))]
     (make sequence)))
+
+(defn queue
+  ([] clojure.lang.PersistentQueue/EMPTY)
+  ([coll] (reduce conj clojure.lang.PersistentQueue/EMPTY coll)))
+
+(defmethod print-method clojure.lang.PersistentQueue
+  [q ^java.io.Writer w]
+  (.write w "#queue ")
+  (print-method (sequence q) w))
