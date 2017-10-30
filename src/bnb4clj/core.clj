@@ -1,4 +1,4 @@
-(ns fourtytoo.bnb4clj)
+(ns bnb4clj.core)
 
 
 (defmacro unless [test & body]
